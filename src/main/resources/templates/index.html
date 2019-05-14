@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xml:th="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>LSD team structure</title>
+</head>
+<body>
+<div align="center">
+    <h1>LSD Team structure</h1>
+    <a href="new">Add new member</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th >Team ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Position</th>
+            <th>Phone number</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="member : ${memberS}">
+            <td th:text="${member.id}">Team ID</td>
+            <td th:text="${member.name}">Name</td>
+            <td th:text="${member.surname}">Surname</td>
+            <td th:text="${member.position}">Position</td>
+            <td th:text="${member.phoneNumber}">Phone number</td>
+            <td>
+                <a th:href="@{'/edit/' + ${member.id}}">Edit data</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${member.id}}">Delete data</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
